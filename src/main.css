@@ -34,6 +34,9 @@ body {
   cursor: pointer;
   transition: 0.3s;
 }
+.btn:hover {
+  background-color: var(--color-hover);
+}
 .btn-primary {
   background-color: var(--color-primary);
   color: var(--color-black);
@@ -103,6 +106,11 @@ body {
   padding: 20px;
   border-radius: 4px;
   background-color: var(--color-area);
+}
+.movie-list .message {
+  color: var(--color-primary);
+  font-size: 20px;
+  text-align: center;
 }
 .movie-list .movies {
   display: flex;
