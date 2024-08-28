@@ -2,6 +2,8 @@
 
 OMDb API를 활용해 VanillaJS 영화 검색 애플리케이션을 만들어봅니다.  
 
+[DEMO](https://vanillajs-movie-app-peach.vercel.app/#/)
+
 ### 프로젝트 시작하기
 
 ```bash
