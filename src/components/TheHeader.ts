@@ -1,7 +1,14 @@
 import { Component } from "../core/ryucro";
-import Logo from "../images/logo.png";
 
+interface State {
+  [key: string]: unknown
+  menus: {
+    name: string
+    href: string
+  }[]
+}
 export default class TheHeader extends Component {
+  public state!: State
   constructor() {
     super({
       tagName: 'header',
@@ -52,7 +59,7 @@ export default class TheHeader extends Component {
         </ul>
       </nav>
       <a href="#/about" class="user">
-        <img src="${Logo}" alt="User">
+        <img src="https://raw.githubusercontent.com/ChangGyu-Ryu/vanillajs-movie-app/main/src/images/logo.png" alt="User">
       </a>
     `
   }
