@@ -1,18 +1,13 @@
 import { Store } from '../core/ryucro'
+import OpenAI from 'openai'
 
 interface State {
   chatText: string
-  messages: Message[]
+  messages: OpenAI.ChatCompletionMessageParam[]
   loading: boolean
 }
-interface Message {
-  role: 'assistant' | 'user'
-  content: string
-}
-const defaultMessages: Message[] = [
-  { role: 'assistant', content: '좋아하는 영화 장르나 제목을 알려주세요.'},
-  { role: 'user', content: '재미있는 액션 영화를 추천해 줘.'},
-  { role: 'assistant', content: '키아누 리브사 주연으로 출연한 영화 존윅을 추천합니다.'}
+const defaultMessages: OpenAI.ChatCompletionMessageParam[] = [
+  { role: 'assistant', content: '좋아하는 영화 장르나 제목을 알려주세요.'}
 ]
 
 const store = new Store<State>({
@@ -31,17 +26,19 @@ export const sendMessages = async () => {
     { role: 'user', content: store.state.chatText }
   ]
   try {
-    const res = await fetch('/api/chatobt', {
+    const res = await fetch('/api/chatbot', {
       method: 'POST',
       body: JSON.stringify({
         messages: store.state.messages
       })
     })
+    console.log(res)
     const message = await res.json()
     store.state.messages = [
       ...store.state.messages,
       message
     ]
+
     store.state.chatText = ''
   } catch (error) {
     console.log('sendMessages error:', error)
