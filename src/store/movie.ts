@@ -1,6 +1,6 @@
 import { Store } from '../core/ryucro'
 
-export interface SimpleMovie {
+interface SimpleMovie {
   Title: string
   Year: string
   imdbID: string
@@ -58,7 +58,7 @@ const store = new Store<State>({
 })
 
 export default store
-export const searchMovies = async (page: number) => { 
+export const searchMovies = async (page:number) => { 
   store.state.loading = true
   store.state.page = page
   if (page === 1) {
@@ -86,6 +86,7 @@ export const searchMovies = async (page: number) => {
     }
   } catch (error) {
     console.log('searchMovies error:', error)
+    console.log(error)
   } finally {
     store.state.loading = false
   }
