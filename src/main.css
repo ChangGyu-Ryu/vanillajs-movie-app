@@ -464,6 +464,13 @@ footer a:hover {
   height: 13px;
   border-width: 3px;
 }
+.chatbot .chats li.assistant .movie-title {
+  color: var(--color-primary);
+  cursor: pointer;
+}
+.chatbot .chats li.assistant .movie-title:hover {
+  text-decoration: underline;
+}
 .chatbot .chats li.user {
   align-self: flex-end;
   border-top-right-radius: 4px;
